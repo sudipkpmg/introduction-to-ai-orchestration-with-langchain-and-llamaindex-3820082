@@ -2,9 +2,11 @@ import os
 from openai import OpenAI # version 1.0+
 # if you get openai errors, run pip install --upgrade openai
 
+api_key=os.environ['OPENAI_API_KEY']
+
 llm = OpenAI(
     # place your OpenAI key in an environment variable
-    #api_key=os.environ['OPENAI_API_KEY'], # this is the default
+    api_key=api_key # this is the default
     #base_url="http://localhost:1234/v1"  # see chapter 1 video 3
 )
 
@@ -18,7 +20,7 @@ user_input = """AI Orchestration with LangChain and LlamaIndex
     keywords: Generative AI, applications, LLM, chatbot"""
 
 response = llm.chat.completions.create(
-    model="gpt-4-1106-preview",
+    model="gpt-4o",
     max_tokens=500,
     temperature=0.7,
     messages=[
